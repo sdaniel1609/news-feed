@@ -1,37 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import {NewsService} from '../news.service';
-import {News} from '../news';
-import { Observable, of } from 'rxjs';
-import {HttpClient} from '@angular/common/http';
 @Component({
   selector: 'app-top-headlines',
   templateUrl: './top-headlines.component.html',
   styleUrls: ['./top-headlines.component.css']
 })
 export class TopHeadlinesComponent implements OnInit {
-  categories = ['United Kingdom', 'Technology', 'Health', 'Sports', 'Science'];
+  categories = ['United-Kingdom', 'technology', 'health', 'sports', 'science'];
   news: any;
-  constructor(private newsService: NewsService, private http: HttpClient) { }
+  constructor(private newsService: NewsService) { }
 
   getCountryNews(): void {
-    this.news = [];
-    this.newsService.getCountryHeadlines('gb', 4)
-      .subscribe((data: {}) => {
-        console.log(data)
-        this.news = data;
-      });
+    for (let i = 0; i < this.categories.length; i ++) {
+      if (this.categories[i] === 'United-Kingdom') {
+        this.newsService.getCountryHeadlines('gb', 4)
+          .subscribe((data: {}) => {
+            this.news = data;
+          });
+      }
+     /* else {
+        this.newsService.getTopicsHeadlines(this.categories[i], 4)
+          .subscribe((data: {}) => {
+            this.news = data;
+          });
+      }*/
+    }
   }
-
-/*
-  getCategoryNews(): void {
-    this.news = [];
-    this.newsService.getCategoryHeadlines('technology', 20)
-      .subscribe((data: {}) => {
-        console.log(data)
-        this.news = data;
-      });
-  }
-*/
 
   ngOnInit() {
     this.getCountryNews();

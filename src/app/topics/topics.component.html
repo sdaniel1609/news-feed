@@ -1,3 +1,4 @@
+<div class="container header"><h5>{{category | uppercase}}</h5></div>
 <div class="container" *ngFor="let n of news">
   <div class="card mb-5" style="max-width: 800px;">
     <div class="row no-gutters">
@@ -8,7 +9,7 @@
         <div class="card-body">
           <h5 class="card-title">{{n.title}}</h5>
           <p class="card-text"><small class="text-muted">Source: {{n.source.name}}, {{n.publishedAt |  date:'medium'}}</small></p>
-          <a href="{{n.url}}">Read full coverage</a>
+          <a href="{{n.url}}" target="_blank">Read full coverage</a>
         </div>
       </div>
     </div>

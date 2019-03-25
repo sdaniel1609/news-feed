@@ -14,10 +14,15 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import {MatListModule} from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
 import { TopicsComponent } from './topics/topics.component';
+import {MatInputModule} from '@angular/material/input';
 
 const appRoutes: Routes = [
+  { path: 'top-headlines', component: TopHeadlinesComponent },
+  { path: 'united-kingdom', component: TopicsComponent },
   { path: 'technology', component: TopicsComponent },
   { path: 'health', component: TopicsComponent },
+  { path: 'sports', component: TopicsComponent },
+  { path: 'science', component: TopicsComponent },
 ];
 
 
@@ -30,7 +35,7 @@ const appRoutes: Routes = [
     TopicsComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, MatListModule , MatSidenavModule, MatIconModule, BrowserAnimationsModule, FormsModule, MatCheckboxModule, MatToolbarModule,
+    BrowserModule, HttpClientModule, MatInputModule, MatListModule , MatSidenavModule, MatIconModule, BrowserAnimationsModule, FormsModule, MatCheckboxModule, MatToolbarModule,
     RouterModule.forRoot(
       appRoutes)
   ],

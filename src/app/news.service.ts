@@ -24,7 +24,17 @@ export class NewsService {
       );
   }
 
-  getCategoryHeadlines(category: string, size: number): Observable<any[]> {
+  getHeadlines(country: string, size: number): Observable<any[]> {
+    const url = `${this.topHeadlinesUrl}country=${country}&apiKey=${this.apiKey}&pageSize=${size}`;
+    return this.http.get<any[]>(url)
+      .pipe(
+        map(result => result['articles']),
+        catchError(this.handleError<any>('getCountryHeadlines'))
+      );
+  }
+
+
+  getTopicsHeadlines(category: string, size: number): Observable<any[]> {
     const url = `${this.topHeadlinesUrl}category=${category}&apiKey=${this.apiKey}&pageSize=${size}&country=gb&country=us`;
     return this.http.get<any[]>(url)
       .pipe(
