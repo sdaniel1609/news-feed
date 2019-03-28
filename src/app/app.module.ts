@@ -17,6 +17,7 @@ import { TopicsComponent } from './topics/topics.component';
 import {MatInputModule} from '@angular/material/input';
 
 const appRoutes: Routes = [
+  {path: '', component: TopHeadlinesComponent},
   { path: 'top-headlines', component: TopHeadlinesComponent },
   { path: 'united-kingdom', component: TopicsComponent },
   { path: 'technology', component: TopicsComponent },
