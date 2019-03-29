@@ -1,35 +1,100 @@
-<!--
-<h5>United Kingdom</h5>
-<div class="container" *ngFor="let n of news">
-<div class="card">
-  <img src="{{n.urlToImage}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{n.title}}</h5>
-    <p class="card-text"><small class="text-muted">Source: {{n.source.name}}, {{n.publishedAt |  date:'medium'}}</small></p>
-    <p class="card-text">{{n.description}}</p>
-    <a href="{{n.url}}" class="btn btn-primary">Read full coverage</a>
-  </div>
-</div>
-</div>-->
-
-<div *ngFor="let category of categories">
-  <div class="container header" >
-  <h5>{{category | uppercase}}</h5>
-  <div class="container" *ngFor="let n of news">
+ <div class="container header">
+  <h5>United Kingdom</h5>
+  <div class="container" *ngFor="let n of gbNews">
     <div class="card mb-5" style="max-width: 800px;">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img src="{{n.urlToImage}}" class="card-img" alt="...">
+          <img src="{{n.urlToImage }}" class="card-img" alt="...">
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title">{{n.title}}</h5>
-            <p class="card-text"><small class="text-muted">Source: {{n.source.name}}, {{n.publishedAt |  date:'medium'}}</small></p>
+            <h5 class="card-title">{{n.title }}</h5>
+            <p class="card-text"><small class="text-muted">Source: {{n.source.name }}, {{n.publishedAt |  date:'medium'}}</small></p>
             <a href="{{n.url}}">Read full coverage</a>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+
+<div class="container header">
+  <h5>Technology</h5>
+  <div class="container" *ngFor="let n of techNews">
+    <div class="card mb-5" style="max-width: 800px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{n.urlToImage }}" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{n.title }}</h5>
+            <p class="card-text"><small class="text-muted">Source: {{n.source.name }}, {{n.publishedAt |  date:'medium'}}</small></p>
+            <a href="{{n.url}}">Read full coverage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container header">
+  <h5>Health</h5>
+  <div class="container" *ngFor="let n of healthNews">
+    <div class="card mb-5" style="max-width: 800px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{n.urlToImage }}" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{n.title }}</h5>
+            <p class="card-text"><small class="text-muted">Source: {{n.source.name }}, {{n.publishedAt |  date:'medium'}}</small></p>
+            <a href="{{n.url}}">Read full coverage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container header">
+  <h5>Sports</h5>
+  <div class="container" *ngFor="let n of sportsNews">
+    <div class="card mb-5" style="max-width: 800px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{n.urlToImage }}" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{n.title }}</h5>
+            <p class="card-text"><small class="text-muted">Source: {{n.source.name }}, {{n.publishedAt |  date:'medium'}}</small></p>
+            <a href="{{n.url}}">Read full coverage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container header">
+  <h5>Science</h5>
+  <div class="container" *ngFor="let n of scienceNews">
+    <div class="card mb-5" style="max-width: 800px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{n.urlToImage }}" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{n.title }}</h5>
+            <p class="card-text"><small class="text-muted">Source: {{n.source.name }}, {{n.publishedAt |  date:'medium'}}</small></p>
+            <a href="{{n.url}}">Read full coverage</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

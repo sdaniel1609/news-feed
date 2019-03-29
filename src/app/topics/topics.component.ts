@@ -26,6 +26,7 @@ export class TopicsComponent implements OnInit {
       this.newsService.getTopicsHeadlines(this.category, 20)
         .subscribe((data: {}) => {
           this.news = data;
+          console.log(this.news);
         });
     }
   }

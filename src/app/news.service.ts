@@ -3,7 +3,7 @@ import {News} from './news';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-
+import {INews} from './INews';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +15,13 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
-  getCountryHeadlines(country: string, size: number): Observable<any[]> {
+  getCountryHeadlines(country: string, size: number) {
     const url = `${this.topHeadlinesUrl}country=${country}&apiKey=${this.apiKey}&pageSize=${size}`;
-    return this.http.get<any[]>(url)
+    return this.http.get(url)
       .pipe(
-        map(result => result['articles']),
+        map( res => res['articles']),
         catchError(this.handleError<any>('getCountryHeadlines'))
-      );
+  );
   }
 
   getHeadlines(country: string, size: number): Observable<any[]> {
