@@ -11,6 +11,7 @@ import {INews} from './INews';
 export class NewsService {
 
   private topHeadlinesUrl = 'https://newsapi.org/v2/top-headlines?';
+  private everythingUrl = 'https://newsapi.org/v2/everything?';
   private apiKey = '796b242b8fc641ffa1d48a031a9fe11c';
 
   constructor(private http: HttpClient) { }
@@ -24,12 +25,12 @@ export class NewsService {
   );
   }
 
-  getHeadlines(country: string, size: number): Observable<any[]> {
-    const url = `${this.topHeadlinesUrl}country=${country}&apiKey=${this.apiKey}&pageSize=${size}`;
+  searchNews(searchTerm: string, size: number): Observable<any[]> {
+    const url = `${this.everythingUrl}q=${searchTerm}&apiKey=${this.apiKey}`;
     return this.http.get<any[]>(url)
       .pipe(
         map(result => result['articles']),
-        catchError(this.handleError<any>('getCountryHeadlines'))
+        catchError(this.handleError<any>('searchNews'))
       );
   }
 

@@ -15,7 +15,9 @@ import {MatListModule} from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
 import { TopicsComponent } from './topics/topics.component';
 import {MatInputModule} from '@angular/material/input';
-
+import { SearchComponent } from './search/search.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { ReactiveFormsModule } from '@angular/forms';
 const appRoutes: Routes = [
   {path: '', component: TopHeadlinesComponent},
   { path: 'top-headlines', component: TopHeadlinesComponent },
@@ -24,6 +26,7 @@ const appRoutes: Routes = [
   { path: 'health', component: TopicsComponent },
   { path: 'sports', component: TopicsComponent },
   { path: 'science', component: TopicsComponent },
+  { path: 'search', component: SearchComponent },
 ];
 
 
@@ -33,10 +36,12 @@ const appRoutes: Routes = [
     TopHeadlinesComponent,
     NavigationComponent,
     ToolbarComponent,
-    TopicsComponent
+    TopicsComponent,
+    SearchComponent,
+
   ],
   imports: [
-    BrowserModule, HttpClientModule, MatInputModule, MatListModule , MatSidenavModule, MatIconModule, BrowserAnimationsModule, FormsModule, MatCheckboxModule, MatToolbarModule,
+    BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatAutocompleteModule, MatInputModule, MatListModule , MatSidenavModule, MatIconModule, BrowserAnimationsModule, FormsModule, MatCheckboxModule, MatToolbarModule,
     RouterModule.forRoot(
       appRoutes)
   ],

@@ -14,11 +14,12 @@
         <a mat-list-item routerLink="/technology" (click)="snav.close()">Technology</a>
         <a mat-list-item routerLink="/health" (click)="snav.close()">Health</a>
         <a mat-list-item routerLink="/sports" (click)="snav.close()">Sports</a>
-        <a mat-list-item routerLink="science" (click)="snav.close()">Science</a>
+        <a mat-list-item routerLink="/science" (click)="snav.close()">Science</a>
+        <a mat-list-item routerLink="/search" (click)="snav.close()">Search</a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div *ngIf="showLoadingIndicator" class="spinner">LOADING</div>
+      <div *ngIf="showLoadingIndicator" class="spinner"></div>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
