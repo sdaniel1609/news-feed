@@ -9,17 +9,16 @@
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
-        <a mat-list-item routerLink="/top-headlines" (click)="snav.close()">Top Headlines</a>
-        <a mat-list-item routerLink="/united-kingdom" (click)="snav.close()">United Kingdom</a>
-        <a mat-list-item routerLink="/technology" (click)="snav.close()">Technology</a>
-        <a mat-list-item routerLink="/health" (click)="snav.close()">Health</a>
-        <a mat-list-item routerLink="/sports" (click)="snav.close()">Sports</a>
-        <a mat-list-item routerLink="/science" (click)="snav.close()">Science</a>
-        <a mat-list-item routerLink="/search" (click)="snav.close()">Search</a>
+        <a mat-list-item routerLink="/search" (click)="snav.close()"><i class="fas fa-search"></i>Search</a>
+        <a mat-list-item routerLink="/top-headlines" (click)="snav.close()"><i class="fas fa-star"></i>Top Headlines</a>
+        <a mat-list-item routerLink="/united-kingdom" (click)="snav.close()"><i class="fas fa-globe-europe"></i>United Kingdom</a>
+        <a mat-list-item routerLink="/technology" (click)="snav.close()"><i class="fab fa-nintendo-switch"></i>Technology</a>
+        <a mat-list-item routerLink="/health" (click)="snav.close()"><i class="fas fa-weight"></i>Health</a>
+        <a mat-list-item routerLink="/sports" (click)="snav.close()"><i class="fas fa-volleyball-ball"></i>Sports</a>
+        <a mat-list-item routerLink="/science" (click)="snav.close()"><i class="fas fa-atom"></i>Science</a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div *ngIf="showLoadingIndicator" class="spinner"></div>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

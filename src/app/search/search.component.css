@@ -16,3 +16,8 @@
   outline: none;
   box-shadow: none;
 }
+.search-box {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}

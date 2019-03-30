@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TopHeadlinesComponent } from './top-headlines/top-headlines.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -18,6 +18,12 @@ import {MatInputModule} from '@angular/material/input';
 import { SearchComponent } from './search/search.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgMatSearchBarModule } from 'ng-mat-search-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {LoaderInterceptorService} from './loader-interceptor.service';
+import { LoaderComponent } from './loader/loader.component';
+import {LoaderService} from './loader.service';
+
 const appRoutes: Routes = [
   {path: '', component: TopHeadlinesComponent},
   { path: 'top-headlines', component: TopHeadlinesComponent },
@@ -38,14 +44,19 @@ const appRoutes: Routes = [
     ToolbarComponent,
     TopicsComponent,
     SearchComponent,
+    LoaderComponent,
 
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatAutocompleteModule, MatInputModule, MatListModule , MatSidenavModule, MatIconModule, BrowserAnimationsModule, FormsModule, MatCheckboxModule, MatToolbarModule,
+    BrowserModule, MatProgressSpinnerModule,  HttpClientModule, NgMatSearchBarModule,  FormsModule, ReactiveFormsModule, MatAutocompleteModule, MatInputModule, MatListModule , MatSidenavModule, MatIconModule, BrowserAnimationsModule, FormsModule, MatCheckboxModule, MatToolbarModule,
     RouterModule.forRoot(
       appRoutes)
   ],
-  providers: [],
+  providers: [LoaderService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoaderInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

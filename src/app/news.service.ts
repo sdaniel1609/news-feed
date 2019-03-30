@@ -12,12 +12,12 @@ export class NewsService {
 
   private topHeadlinesUrl = 'https://newsapi.org/v2/top-headlines?';
   private everythingUrl = 'https://newsapi.org/v2/everything?';
-  private apiKey = '796b242b8fc641ffa1d48a031a9fe11c';
+ // private apiKey = '796b242b8fc641ffa1d48a031a9fe11c';
 
   constructor(private http: HttpClient) { }
 
   getCountryHeadlines(country: string, size: number) {
-    const url = `${this.topHeadlinesUrl}country=${country}&apiKey=${this.apiKey}&pageSize=${size}`;
+    const url = `${this.topHeadlinesUrl}country=${country}&pageSize=${size}`;
     return this.http.get(url)
       .pipe(
         map( res => res['articles']),
@@ -26,7 +26,7 @@ export class NewsService {
   }
 
   searchNews(searchTerm: string, size: number): Observable<any[]> {
-    const url = `${this.everythingUrl}q=${searchTerm}&apiKey=${this.apiKey}`;
+    const url = `${this.everythingUrl}q=${searchTerm}`;
     return this.http.get<any[]>(url)
       .pipe(
         map(result => result['articles']),
@@ -36,7 +36,7 @@ export class NewsService {
 
 
   getTopicsHeadlines(category: string, size: number): Observable<any[]> {
-    const url = `${this.topHeadlinesUrl}category=${category}&apiKey=${this.apiKey}&pageSize=${size}&country=gb&country=us`;
+    const url = `${this.topHeadlinesUrl}category=${category}&pageSize=${size}&country=gb&country=us`;
     return this.http.get<any[]>(url)
       .pipe(
         map(result => result['articles']),

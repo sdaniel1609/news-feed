@@ -1,47 +1,8 @@
-<!--
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of options" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-</form>
 
-<div class="container">
-  <br/>
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-10 col-lg-8">
-      <form class="card card-sm">
-        <div class="card-body row no-gutters align-items-center">
-          <div class="col-auto">
-            <i class="fas fa-search h4 text-body"></i>
-          </div>
-          &lt;!&ndash;end of col&ndash;&gt;
-          <div class="col">
-            <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
-          </div>
-          &lt;!&ndash;end of col&ndash;&gt;
-          <div class="col-auto">
-            <button class="btn btn-lg btn-success" type="submit">Search</button>
-          </div>
-          &lt;!&ndash;end of col&ndash;&gt;
-        </div>
-      </form>
-    </div>
-    &lt;!&ndash;end of col&ndash;&gt;
-  </div>
-</div>
--->
-<div class="container">
-  <label>
-    Name:
-    <input type="text" [formControl]="news" placeholder="Search for topics">
+  <label class="search-box">
+    <input type="text" [formControl]="news" placeholder="Search for topics..">
     <button (click)="submitSearch(news.value)" type="submit">Submit</button>
   </label>
-</div>
 
 
 <div class="container" *ngFor="let n of search">
@@ -59,3 +20,4 @@
       </div>
     </div>
   </div>
+</div>
