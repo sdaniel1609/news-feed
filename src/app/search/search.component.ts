@@ -19,7 +19,6 @@ export class SearchComponent implements OnInit {
 
   submitSearch(topic: string): void {
     this.searchTerm = topic;
-    console.log(topic);
     this.searchNews();
   }
 
@@ -28,12 +27,10 @@ export class SearchComponent implements OnInit {
     this.newsService.searchNews(this.searchTerm, 20)
       .subscribe(res => {
         this.search = res;
-        console.log(res);
       });
   }
 
   ngOnInit() {
-    console.log('fetching data');
     this.dataService.currentMessage.subscribe(message => this.search = message);
   }
 

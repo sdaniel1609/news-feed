@@ -45,7 +45,6 @@ export class NavigationComponent implements OnDestroy {
 
   submitSearch(topic: string): void {
     this.searchTerm = topic;
-    console.log(topic);
     this.searchNews();
   }
 
