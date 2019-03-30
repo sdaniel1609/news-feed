@@ -2,6 +2,9 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 
 import {Router, NavigationEnd, NavigationStart, Event} from '@angular/router';
+import {NewsService} from '../news.service';
+import {FormControl} from '@angular/forms';
+import {DataService} from '../data.service';
 
 /** @title Responsive sidenav */
 @Component({
@@ -13,9 +16,14 @@ export class NavigationComponent implements OnDestroy {
 
   mobileQuery: MediaQueryList;
   showLoadingIndicator = true;
+  searchTerm: string;
+  search = [];
+  news = new FormControl('');
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router,
+              private newsService: NewsService,
+              private dataService: DataService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -29,6 +37,24 @@ export class NavigationComponent implements OnDestroy {
         this.showLoadingIndicator = false;
       }
     });
+  }
+
+  setData() {
+    this.dataService.changeMessage(this.search);
+  }
+
+  submitSearch(topic: string): void {
+    this.searchTerm = topic;
+    console.log(topic);
+    this.searchNews();
+  }
+
+  searchNews(): void {
+    this.newsService.searchNews(this.searchTerm, 20)
+      .subscribe(res => {
+        this.search = res;
+        this.setData();
+      });
   }
 
 

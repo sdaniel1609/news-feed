@@ -5,6 +5,7 @@
   height:100%;
   top:0;
   left:0;
+  background: rgba(131, 132, 125, 0.3);
   z-index:99999;
 }
 .spinner {

@@ -18,10 +18,6 @@ export class LoaderInterceptorService implements HttpInterceptor{
         'Authorization', '796b242b8fc641ffa1d48a031a9fe11c'
       )
     });
-
-    console.log(newRequest);
-    console.log(newRequest.body);
-
     return next.handle(newRequest).pipe(
       finalize(()=> this.loaderService.hide())
     );

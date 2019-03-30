@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NewsService} from '../news.service';
 import {FormControl} from '@angular/forms';
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-search',
@@ -10,18 +11,18 @@ import {FormControl} from '@angular/forms';
 export class SearchComponent implements OnInit {
   search = [];
   searchTerm: string;
- // myControl = new FormControl();
-  options: string[] = ['Apple', 'Bitcoin', 'Sports'];
-
   news = new FormControl('');
 
-  constructor(private newsService: NewsService) { }
+  constructor(private newsService: NewsService,
+              private dataService: DataService,) {
+  }
 
   submitSearch(topic: string): void {
     this.searchTerm = topic;
     console.log(topic);
     this.searchNews();
   }
+
 
   searchNews(): void {
     this.newsService.searchNews(this.searchTerm, 20)
@@ -32,6 +33,8 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('fetching data');
+    this.dataService.currentMessage.subscribe(message => this.search = message);
   }
 
 }

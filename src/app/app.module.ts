@@ -10,7 +10,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NavigationComponent } from './navigation/navigation.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
-import { ToolbarComponent } from './toolbar/toolbar.component';
 import {MatListModule} from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
 import { TopicsComponent } from './topics/topics.component';
@@ -23,6 +22,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {LoaderInterceptorService} from './loader-interceptor.service';
 import { LoaderComponent } from './loader/loader.component';
 import {LoaderService} from './loader.service';
+import {DataService} from './data.service';
 
 const appRoutes: Routes = [
   {path: '', component: TopHeadlinesComponent},
@@ -41,7 +41,6 @@ const appRoutes: Routes = [
     AppComponent,
     TopHeadlinesComponent,
     NavigationComponent,
-    ToolbarComponent,
     TopicsComponent,
     SearchComponent,
     LoaderComponent,
@@ -52,7 +51,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes)
   ],
-  providers: [LoaderService, {
+  providers: [LoaderService, DataService, {
     provide: HTTP_INTERCEPTORS,
     useClass: LoaderInterceptorService,
     multi: true

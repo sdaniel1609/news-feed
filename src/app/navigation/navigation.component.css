@@ -46,3 +46,23 @@ button:hover {
 .fas, .fab {
   margin-right: 10px;
 }
+
+.search-box{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  min-width: 150px;
+  height: 100%;
+}
+
+#fas-search {
+  color: white;
+}
+#searchInput {
+  border-radius: 10px;
+  outline: none;
+  padding: 5px;
+  box-shadow: none;
+  height: 40px;
+}

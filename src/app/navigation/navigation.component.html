@@ -2,6 +2,11 @@
   <mat-toolbar color="primary" class="example-toolbar">
     <button  (click)="snav.toggle()"><i class="fas fa-bars"></i></button>
     <h1 class="example-app-name">NEWS FEED</h1>
+
+    <div class="search-box">
+      <input id="searchInput" type="text" [formControl]="news" placeholder="Search for topics..">
+      <button routerLink="/search" (click)="submitSearch(news.value)" type="submit"><i id="fas-search" class="fas fa-search"></i></button>
+    </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"

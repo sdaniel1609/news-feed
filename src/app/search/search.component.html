@@ -1,9 +1,7 @@
-
-  <label class="search-box">
-    <input type="text" [formControl]="news" placeholder="Search for topics..">
-    <button (click)="submitSearch(news.value)" type="submit">Submit</button>
-  </label>
-
+<div class="search-box">
+  <input id="searchInput" type="text" [formControl]="news" placeholder="Search for topics..">
+  <button routerLink="/search" (click)="submitSearch(news.value)" type="submit"><i class="fas fa-search"></i></button>
+</div>
 
 <div class="container" *ngFor="let n of search">
   <div class="card mb-5" style="max-width: 800px;">
