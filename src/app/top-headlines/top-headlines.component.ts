@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NewsService} from '../news.service';
+import {NewsService} from '../services/news.service';
 @Component({
   selector: 'app-top-headlines',
   templateUrl: './top-headlines.component.html',

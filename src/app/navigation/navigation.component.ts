@@ -2,9 +2,9 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 
 import {Router, NavigationEnd, NavigationStart, Event} from '@angular/router';
-import {NewsService} from '../news.service';
+import {NewsService} from '../services/news.service';
 import {FormControl} from '@angular/forms';
-import {DataService} from '../data.service';
+import {DataService} from '../services/data.service';
 
 /** @title Responsive sidenav */
 @Component({

@@ -19,10 +19,10 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgMatSearchBarModule } from 'ng-mat-search-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {LoaderInterceptorService} from './loader-interceptor.service';
+import {LoaderInterceptorService} from './services/loader-interceptor.service';
 import { LoaderComponent } from './loader/loader.component';
-import {LoaderService} from './loader.service';
-import {DataService} from './data.service';
+import {LoaderService} from './services/loader.service';
+import {DataService} from './services/data.service';
 
 const appRoutes: Routes = [
   {path: '', component: TopHeadlinesComponent},

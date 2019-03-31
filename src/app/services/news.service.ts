@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {News} from './news';
+import {News} from '../news';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import {INews} from './INews';
+import {INews} from '../INews';
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NewsService} from '../news.service';
+import {NewsService} from '../services/news.service';
 import {FormControl} from '@angular/forms';
-import {DataService} from '../data.service';
+import {DataService} from '../services/data.service';
 
 @Component({
   selector: 'app-search',
