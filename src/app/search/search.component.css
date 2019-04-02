@@ -26,3 +26,7 @@
   display: flex;
   justify-content: center;
 }
+
+#nothing-found:hover{
+  cursor: pointer;
+}
