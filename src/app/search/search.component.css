@@ -21,3 +21,8 @@
   display: flex;
   justify-content: center;
 }
+
+#nothing-found{
+  display: flex;
+  justify-content: center;
+}

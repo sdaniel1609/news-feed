@@ -1,6 +1,5 @@
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
-
 import {Router, NavigationEnd, NavigationStart, Event} from '@angular/router';
 import {NewsService} from '../services/news.service';
 import {FormControl} from '@angular/forms';
@@ -19,6 +18,8 @@ export class NavigationComponent implements OnDestroy {
   searchTerm: string;
   search = [];
   news = new FormControl('');
+  hide = false;
+
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router,
@@ -41,17 +42,22 @@ export class NavigationComponent implements OnDestroy {
 
   setData() {
     this.dataService.changeMessage(this.search);
+    this.dataService.changeHide(this.hide);
   }
 
   submitSearch(topic: string): void {
     this.searchTerm = topic;
     this.searchNews();
+    this.router.navigate(['search']);
   }
 
   searchNews(): void {
     this.newsService.searchNews(this.searchTerm, 20)
       .subscribe(res => {
         this.search = res;
+        if (res.length === 0) {
+          this.hide = true;
+        }
         this.setData();
       });
   }

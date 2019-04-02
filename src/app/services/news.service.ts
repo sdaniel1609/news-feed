@@ -20,7 +20,7 @@ export class NewsService {
     const url = `${this.topHeadlinesUrl}country=${country}&pageSize=${size}`;
     return this.http.get(url)
       .pipe(
-        map( res => res['articles']),
+        map( result => result['articles']),
         catchError(this.handleError<any>('getCountryHeadlines'))
   );
   }

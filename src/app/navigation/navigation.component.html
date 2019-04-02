@@ -5,7 +5,7 @@
 
     <div class="search-box">
       <input id="searchInput" type="text" (keyup.enter)="submitSearch(news.value)" [formControl]="news" placeholder="Search for topics..">
-      <button routerLink="/search"  (click)="submitSearch(news.value)" type="submit"><i id="fas-search" class="fas fa-search"></i></button>
+      <button  (click)="submitSearch(news.value)" type="submit"><i id="fas-search" class="fas fa-search"></i></button>
     </div>
   </mat-toolbar>
 

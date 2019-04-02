@@ -12,6 +12,7 @@ export class SearchComponent implements OnInit {
   search = [];
   searchTerm: string;
   news = new FormControl('');
+  hide = false;
 
   constructor(private newsService: NewsService,
               private dataService: DataService,) {
@@ -20,6 +21,7 @@ export class SearchComponent implements OnInit {
   submitSearch(topic: string): void {
     this.searchTerm = topic;
     this.searchNews();
+    this.news.reset();
   }
 
 
@@ -27,11 +29,18 @@ export class SearchComponent implements OnInit {
     this.newsService.searchNews(this.searchTerm, 20)
       .subscribe(res => {
         this.search = res;
+        if (res.length === 0) {
+          this.hide = true;
+        }
       });
   }
 
+  toggleHide(): void {
+    this.hide = false;
+  }
   ngOnInit() {
     this.dataService.currentMessage.subscribe(message => this.search = message);
+    this.dataService.hideMessage.subscribe(hide => this.hide = hide);
   }
 
 }

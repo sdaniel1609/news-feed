@@ -51,8 +51,6 @@ export class TopHeadlinesComponent implements OnInit {
       }
     }
   }
-
-  
   ngOnInit() {
     this.getCountryNews();
   }

@@ -1,5 +1,5 @@
 <div class="search-box">
-  <input id="searchInput" type="text" [formControl]="news" placeholder="Search for topics..">
+  <input id="searchInput" type="text" (keyup.enter)="submitSearch(news.value)" [formControl]="news" placeholder="Search for topics..">
   <button routerLink="/search" (click)="submitSearch(news.value)" type="submit"><i class="fas fa-search"></i></button>
 </div>
 
@@ -18,4 +18,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="hide" id="nothing-found">
+  <img  src="https://j.gifs.com/ERlPM4.gif" (click)="toggleHide()">
 </div>
