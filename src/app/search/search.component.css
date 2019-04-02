@@ -30,3 +30,20 @@
 #nothing-found:hover{
   cursor: pointer;
 }
+
+#fas-search {
+  color: black;
+  font-size: 16px;
+}
+#searchInput {
+  border-radius: 10px;
+  outline: none;
+  padding: 5px;
+  box-shadow: none;
+  height: 40px;
+}
+#searchBtn{
+  outline: none;
+  background: none;
+  border: none;
+}
